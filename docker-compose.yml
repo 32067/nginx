@@ -1,0 +1,13 @@
+version: '3.2'
+services:
+  nginx:
+    image: '(dtr)/admin/nginx:(tag)'
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        failure_action: continue
+      restart_policy:
+        condition: any
+    ports:
+      - '31000:80/tcp'
