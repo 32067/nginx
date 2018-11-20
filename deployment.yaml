@@ -46,7 +46,14 @@ spec:
       - name: ${APP_NAME}
         image: 192.168.0.150:5000/admin/${APP_NAME}:${IMAGE_TAG}
         ports:
-        - containerPort: ${SERVICE_PORT}
+        - containerPort: 80
+        env:
+        - name: aliyun_logs_nginx
+          value: stdout
+        - name: aliyun_logs_nginx_tags
+          value: "index=nginx,topic=nginx,stage=test"
+        - name: aliyun_logs_nginx_format
+          value: json 
         volumeMounts:
           - name: config-volume
             mountPath: /etc/apps/config
