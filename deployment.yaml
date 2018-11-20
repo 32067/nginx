@@ -47,6 +47,13 @@ spec:
         image: 192.168.0.150:5000/admin/${APP_NAME}:${IMAGE_TAG}
         ports:
         - containerPort: 80
+        resources:
+          requests: 
+            cpu: "512m"
+            memory: "512Mi"
+          limits:
+            cpu: "512m"
+            memory: "512Mi"
         env:
         - name: aliyun_logs_nginx
           value: stdout
