@@ -23,7 +23,7 @@ spec:
     name: http
     nodePort: ${SERVICE_PORT}
     port: ${SERVICE_PORT}
-    targetPort: 443
+    targetPort: 80
   type: NodePort
 ---
 apiVersion: apps/v1beta2
