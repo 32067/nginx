@@ -21,9 +21,10 @@ spec:
   ports:
   - protocol: TCP
     name: http
+    nodePort: ${SERVICE_PORT}
     port: ${SERVICE_PORT}
     targetPort: 80
-  type: ClusterIP
+  type: NodePort
 ---
 apiVersion: apps/v1beta2
 kind: Deployment
