@@ -3,10 +3,6 @@ kind: ConfigMap
 metadata:
   name: cfg-${APP_NAME}
 data:
-  application.properties: |
-    spring.application.name=${APP_NAME}
-    server.port=${SERVICE_PORT}
-    eureka.client.service-url.default-zone=${EUREKA_SERVER_URL}
   jdbc.properties: |
     mysql.addr=127.0.0.1
     mysql.user=mysql
@@ -26,7 +22,7 @@ spec:
   - protocol: TCP
     name: http
     port: ${SERVICE_PORT}
-    targetPort: ${SERVICE_PORT}
+    targetPort: 80
   type: ClusterIP
 ---
 apiVersion: apps/v1beta2
